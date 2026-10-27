@@ -1,0 +1,24 @@
+services:
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: root-test
+      MYSQL_DATABASE: tidemark_test
+      MYSQL_USER: tidemark
+      MYSQL_PASSWORD: tidemark-test
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -proot-test --silent"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    tmpfs: /var/lib/mysql
+  php:
+    build: docker/php
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      TIDEMARK_CONFIG: /app/tests/php/config.php
+    depends_on:
+      db:
+        condition: service_healthy

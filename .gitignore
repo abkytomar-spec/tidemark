@@ -1,0 +1,14 @@
+.DS_Store
+.worktrees/
+node_modules/
+dist/
+release/
+api/config.php
+tidemark-private/
+playwright-report/
+test-results/
+coverage/
+*.tsbuildinfo
+.claude/
+.vercel/
+.env*

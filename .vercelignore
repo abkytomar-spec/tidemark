@@ -1,0 +1,12 @@
+# Browser-only deployment: the PHP API, database and Hostinger tooling stay out of the upload.
+api
+database
+docker
+hostinger
+tests
+scripts
+compose.yml
+node_modules
+dist
+release
+.claude
